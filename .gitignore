@@ -1,0 +1,32 @@
+# OS & Editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Java / Gradle / Maven
+.gradle/
+build/
+target/
+*.class
+*.jar
+
+# Node / React
+node_modules/
+dist/
+.next/
+out/
+
+# Python / ML
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.pkl
+*.h5
