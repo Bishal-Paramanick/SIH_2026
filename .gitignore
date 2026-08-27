@@ -23,10 +23,15 @@ dist/
 .next/
 out/
 
-# Python / ML
+# Python / ML/ FastAPI/pydantic
 __pycache__/
 *.pyc
 venv/
 .venv/
 *.pkl
 *.h5
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
