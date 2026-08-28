@@ -2,6 +2,7 @@
 .DS_Store
 Thumbs.db
 *.swp
+*.log
 
 # IDEs & Editors
 .idea/
@@ -15,28 +16,31 @@ Thumbs.db
 
 # Python / Virtual Environments / Cache
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
 .Python
 venv/
 .venv/
 env/
 *.pkl
 *.h5
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Node / React
 node_modules/
 dist/
+build/
 .next/
 out/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.eslintcache
 
 # Java / Gradle / Maven
 .gradle/
-build/
 target/
 *.class
 *.jar

@@ -36,7 +36,7 @@ def execute_cypher_file(file_path: Path, step_name: str):
         try:
             db.query(query)
             print(f"[{idx}/{len(queries)}] Executed successfully.")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             print(f"[!] Error on statement #{idx}:\n{query}\nDetails: {e}\n")
 
 

@@ -4,9 +4,10 @@ Handles connection pooling, session lifecycle, health check verification,
 and parameterized Cypher query execution.
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 from typing import Any
+
 from dotenv import load_dotenv
 from neo4j import Driver, GraphDatabase
 
@@ -54,7 +55,7 @@ class Neo4jConnection:
             driver = self.connect()
             driver.verify_connectivity()
             return True
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             print(f"[Neo4j Error] Connection failed: {e}")
             return False
 
