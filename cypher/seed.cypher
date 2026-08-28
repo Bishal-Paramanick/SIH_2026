@@ -8,7 +8,6 @@
 
 // ==========================================
 // 1. PERSON NODES
-
 // ==========================================
 MERGE (p1:Person {id: "P001"})
 SET p1.name = "Rahul Sharma",
@@ -74,18 +73,21 @@ SET org1.name = "Shadow Logistics Pvt Ltd",
 // ==========================================
 
 // Rahul called Sameer
+MATCH (p1:Person {id: "P001"}), (p2:Person {id: "P002"})
 MERGE (p1)-[r1:CALLED {source_doc: "CDR_AUG_01"}]->(p2)
 SET r1.timestamp = "2026-08-20T14:32:00Z",
     r1.duration = 180,
     r1.confidence = 0.98;
 
 // Sameer called Vikram
+MATCH (p2:Person {id: "P002"}), (p3:Person {id: "P003"})
 MERGE (p2)-[r2:CALLED {source_doc: "CDR_AUG_02"}]->(p3)
 SET r2.timestamp = "2026-08-20T15:10:00Z",
     r2.duration = 420,
     r2.confidence = 0.95;
 
 // Rahul sent money to Vikram (Hawala transfer)
+MATCH (p1:Person {id: "P001"}), (p3:Person {id: "P003"})
 MERGE (p1)-[r3:TRANSACTED_WITH {source_doc: "FIN_INTEL_88"}]->(p3)
 SET r3.timestamp = "2026-08-21T09:15:00Z",
     r3.amount = 500000,
@@ -93,27 +95,32 @@ SET r3.timestamp = "2026-08-21T09:15:00Z",
     r3.confidence = 0.92;
 
 // Rahul was present at Old Delhi Warehouse
+MATCH (p1:Person {id: "P001"}), (loc1:Location {id: "LOC001"})
 MERGE (p1)-[r4:PRESENT_AT {source_doc: "FIR_102"}]->(loc1)
 SET r4.timestamp = "2026-08-21T18:00:00Z",
     r4.confidence = 0.90;
 
 // Sameer was also present at Old Delhi Warehouse (Shared Location Co-occurrence!)
+MATCH (p2:Person {id: "P002"}), (loc1:Location {id: "LOC001"})
 MERGE (p2)-[r5:PRESENT_AT {source_doc: "FIR_102"}]->(loc1)
 SET r5.timestamp = "2026-08-21T18:30:00Z",
     r5.confidence = 0.88;
 
 // Amit owns the getaway vehicle
+MATCH (p4:Person {id: "P004"}), (v1:Vehicle {id: "VEH001"})
 MERGE (p4)-[r6:OWNS_VEHICLE {source_doc: "RTO_RECORD"}]->(v1)
 SET r6.confidence = 0.99,
     r6.timestamp = "2024-05-12T00:00:00Z";
 
 // Amit called Rahul
+MATCH (p4:Person {id: "P004"}), (p1:Person {id: "P001"})
 MERGE (p4)-[r7:CALLED {source_doc: "CDR_AUG_03"}]->(p1)
 SET r7.timestamp = "2026-08-21T17:45:00Z",
     r7.duration = 60,
     r7.confidence = 0.97;
 
 // Vikram is the director of Shadow Logistics
+MATCH (p3:Person {id: "P003"}), (org1:Organization {id: "ORG001"})
 MERGE (p3)-[r8:MEMBER_OF {source_doc: "MCA_RECORDS"}]->(org1)
 SET r8.role = "Director",
     r8.confidence = 0.99,

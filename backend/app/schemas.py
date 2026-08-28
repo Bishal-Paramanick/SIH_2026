@@ -88,12 +88,14 @@ class GraphResponse(BaseModel):
 
 
 class RiskBreakdown(BaseModel):
-    degree_centrality: float = Field(default=0.0, ge=0.0, le=100.0)
-    pagerank_score: float = Field(default=0.0, ge=0.0, le=100.0)
-    betweenness_centrality: float = Field(default=0.0, ge=0.0, le=100.0)
     call_frequency_score: float = Field(default=0.0, ge=0.0, le=100.0)
     cross_case_score: float = Field(default=0.0, ge=0.0, le=100.0)
+    centrality_score: float = Field(default=0.0, ge=0.0, le=100.0)
     financial_anomaly_score: float = Field(default=0.0, ge=0.0, le=100.0)
+    # Optional GDS Granular Scores
+    degree_centrality: float | None = Field(default=None, ge=0.0, le=100.0)
+    pagerank_score: float | None = Field(default=None, ge=0.0, le=100.0)
+    betweenness_centrality: float | None = Field(default=None, ge=0.0, le=100.0)
 
 
 class EntityDetailResponse(BaseModel):
