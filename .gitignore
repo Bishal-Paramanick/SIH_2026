@@ -1,14 +1,38 @@
-# OS & Editors
+# OS & System Files
 .DS_Store
 Thumbs.db
-.idea/
-.vscode/
 *.swp
 
-# Environment variables
+# IDEs & Editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+
+# Environment & Secrets
 .env
 .env.*
 !.env.example
+
+# Python / Virtual Environments / Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+*.pkl
+*.h5
+
+# Node / React
+node_modules/
+dist/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Java / Gradle / Maven
 .gradle/
@@ -16,22 +40,3 @@ build/
 target/
 *.class
 *.jar
-
-# Node / React
-node_modules/
-dist/
-.next/
-out/
-
-# Python / ML/ FastAPI/pydantic
-__pycache__/
-*.pyc
-venv/
-.venv/
-*.pkl
-*.h5
-venv/
-.venv/
-__pycache__/
-*.pyc
-.env
