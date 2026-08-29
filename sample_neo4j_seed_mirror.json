@@ -1,0 +1,24 @@
+{
+  "entities": [
+    {"id": "P001", "type": "Person", "name": "Rahul Sharma", "normalized_name": "rahul sharma", "aliases": ["R. Sharma", "Rahul Pandit"], "created_at": "2026-08-20T10:00:00Z", "updated_at": "2026-08-20T10:00:00Z"},
+    {"id": "P002", "type": "Person", "name": "Sameer Khan", "normalized_name": "sameer khan", "aliases": ["Sam", "SK"], "created_at": "2026-08-20T10:00:00Z", "updated_at": "2026-08-20T10:00:00Z"},
+    {"id": "P003", "type": "Person", "name": "Vikram Malhotra", "normalized_name": "vikram malhotra", "aliases": ["Vicky", "Boss"], "created_at": "2026-08-20T10:00:00Z", "updated_at": "2026-08-20T10:00:00Z"},
+    {"id": "P004", "type": "Person", "name": "Amit Verma", "normalized_name": "amit verma", "aliases": ["Chintu"], "created_at": "2026-08-20T10:00:00Z", "updated_at": "2026-08-20T10:00:00Z"},
+    {"id": "PH001", "type": "Phone", "number": "+919876543210", "normalized_number": "9876543210"},
+    {"id": "PH002", "type": "Phone", "number": "+919123456789", "normalized_number": "9123456789"},
+    {"id": "LOC001", "type": "Location", "name": "Old Delhi Warehouse", "normalized_name": "old delhi warehouse", "latitude": 28.6562, "longitude": 77.2410},
+    {"id": "LOC002", "type": "Location", "name": "Connaught Place", "normalized_name": "connaught place", "latitude": 28.6315, "longitude": 77.2167},
+    {"id": "VEH001", "type": "Vehicle", "registration_number": "DL01AB1234", "vehicle_type": "Sedan (Black SUV)"},
+    {"id": "ORG001", "type": "Organization", "name": "Shadow Logistics Pvt Ltd", "normalized_name": "shadow logistics pvt ltd"}
+  ],
+  "relationships": [
+    {"source": "P001", "target": "P002", "type": "CALLED", "source_doc": "CDR_AUG_01", "timestamp": "2026-08-20T14:32:00Z", "duration": 180, "confidence": 0.98},
+    {"source": "P002", "target": "P003", "type": "CALLED", "source_doc": "CDR_AUG_02", "timestamp": "2026-08-20T15:10:00Z", "duration": 420, "confidence": 0.95},
+    {"source": "P001", "target": "P003", "type": "TRANSACTED_WITH", "source_doc": "FIN_INTEL_88", "timestamp": "2026-08-21T09:15:00Z", "amount": 500000, "transaction_id": "TXN_99824", "confidence": 0.92},
+    {"source": "P001", "target": "LOC001", "type": "PRESENT_AT", "source_doc": "FIR_102", "timestamp": "2026-08-21T18:00:00Z", "confidence": 0.90},
+    {"source": "P002", "target": "LOC001", "type": "PRESENT_AT", "source_doc": "FIR_102", "timestamp": "2026-08-21T18:30:00Z", "confidence": 0.88},
+    {"source": "P004", "target": "VEH001", "type": "OWNS_VEHICLE", "source_doc": "RTO_RECORD", "timestamp": "2024-05-12T00:00:00Z", "confidence": 0.99},
+    {"source": "P004", "target": "P001", "type": "CALLED", "source_doc": "CDR_AUG_03", "timestamp": "2026-08-21T17:45:00Z", "duration": 60, "confidence": 0.97},
+    {"source": "P003", "target": "ORG001", "type": "MEMBER_OF", "source_doc": "MCA_RECORDS", "role": "Director", "timestamp": "2021-01-10T00:00:00Z", "confidence": 0.99}
+  ]
+}
